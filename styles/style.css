@@ -1,0 +1,47 @@
+html {
+  /* font-family: "Red Hat Text"; */
+  font-family: "Faculty Glyphic";  
+  font-size: 18px;
+}
+
+h1 {
+  font-family: "Faculty Glyphic";  
+  font-size: 38px;
+  line-height: 70%;
+}
+
+h2 {
+  font-family: "Faculty Glyphic";  
+  font-size: 18px;
+  line-height: 50%;
+}
+
+/* para imágenes centradas */
+.centered-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 10%;
+}
+
+.centered-text {
+  text-align: center;
+}
+
+/* .red-hat-text-<uniquifier> { */
+/*   font-family: "Red Hat Text", sans-serif; */
+/*   font-optical-sizing: auto; */
+/*   font-weight: <weight>; */
+/*   font-style: normal; */
+/* } */
+
+/* .faculty-glyphic-regular { */
+/*   font-family: "Faculty Glyphic", sans-serif; */
+/*   font-weight: 400; */
+/*   font-style: normal; */
+/* } */
+
+
+.navbar, a {
+  color: mediumpurple;
+}
