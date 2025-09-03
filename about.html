@@ -4,26 +4,39 @@
     <!-- Acá se incluyen keywords, estilos css, ...-->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <link href="styles/style.css" rel="stylesheet"/>
+    <link href="styles/styles.css" rel="stylesheet"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Faculty+Glyphic&display=swap" rel="stylesheet">
-    <nav>
-      <ul>
-        <li> <a href="index.html"> Inicio </a> </li>
-        <li> <a href="login.html"> Iniciar sesión </a> </li>
-        <li> <a href="about.html"> Quienes somos? </a> </li>
-      </ul>
-    </nav>
     <title> Quienes somos? </title>
   </head>
   <body>
-    <img src="assets/lotus_pic.png" class="centered-image" alt="Lotus test logo" />
-    <h1 class="centered-text"> Acerca de nosotros </h1>
-    <h2 class="centered-text"> Objetivos </h2>
-    <p class="centered-text"> ... </p>
-    <h2 class="centered-text"> Equipo </h2>
-    <p class="centered-text"> ... </p>
+    <nav class="navbar">
+      <div class="navleft">
+        <div class="nav-logo">
+          <a href="index.html"> 
+            <img src="assets/lotus_pic.png" alt="Lotus Logo"/>
+          </a>
+          <a href="about.html">Quienes somos?</a>
+        </div>
+      </div>
+      <div class="navright">
+        <a href="login.html">Iniciar sesión</a>
+        <a href="comprar.html">Precios</a> 
+      </div>
+    </nav>
+    <div class="about-box">
+      <h1 class="centered-text"> Acerca de nosotros </h1>
+      <p class="centered-text">Soy Iván Meyer, estudiante de Ingeniería en Sistemas de Información, apasionado por la seguridad digital y la protección de la privacidad en línea. Mi interés por crear soluciones que realmente protejan a los usuarios me llevó a desarrollar "Lotus", un gestor de contraseñas que prioriza la privacidad absoluta del usuario por encima de todo. </p>
+      <h2 class="centered-text"> Objetivos </h2>
+      <h3 class="centered-text">Seguridad y Privacidad Máxima </h3>
+      <h3 class="centered-text">Usabilidad Sin Compromisos </h3>
+      <h3 class="centered-text">Alternativa Confiable</h3>
+    </div>
+    <!-- <img src="assets/lotus_pic.png" class="centered-image" alt="Lotus test logo" /> -->
   </body>
+  <footer class="footer">
+    <p>&copy; 2025 Lotus Password Manager</p>
+  </footer>
 </html>

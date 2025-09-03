@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="styles/styles.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Faculty+Glyphic&display=swap" rel="stylesheet">
+    <title>Mis Contraseñas - Vista Tabla | Lotus</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navleft">
+        <div class="nav-logo">
+          <a href="index.html"> 
+            <img src="assets/lotus_pic.png" alt="Lotus Logo"/>
+          </a>
+        </div>
+      </div>
+      <div class="navright">
+        <a href="listado_tabla.html">Mis Contraseñas</a> 
+      </div>
+    </nav>
+
+    <main class="container">
+      <div class="page-header">
+        <h1>Mis Contraseñas</h1>
+        <div class="view-toggle">
+          <button class="btn-view active">📋 Vista Tabla</button>
+          <a href="listado_box.html" class="btn-view">📦 Vista Tarjetas</a>
+        </div>
+      </div>
+
+      <div class="search-bar">
+        <form action="producto.html">
+          <input type="text" placeholder="Buscar contraseñas..." class="search-input">
+          <button class="btn-add">Nueva Contraseña</button>
+        </form>
+      </div>
+
+      <div class="table-container">
+        <table class="password-table">
+          <thead>
+            <tr>
+              <th>Sitio Web</th>
+              <th>Usuario</th>
+              <th>Contraseña</th>
+              <th>Categoría</th>
+              <th>Última Modificación</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="site-info">
+                  <img src="https://www.google.com/s2/favicons?domain=google.com" alt="Google" class="favicon">
+                  <span>Google</span>
+                </div>
+              </td>
+              <td>usuario@gmail.com</td>
+              <td>
+                <div class="password-field">
+                  <span class="password-hidden">••••••••</span>
+                  <button class="btn-show">👁</button>
+                </div>
+              </td>
+              <td><span class="tag tag-personal">Personal</span></td>
+              <td>2024-01-15</td>
+              <td>
+                <div class="action-buttons">
+                  <button class="btn-action" title="Ver detalles">📋</button>
+                  <button class="btn-action" title="Editar">✏️</button>
+                  <button class="btn-action" title="Eliminar">🗑️</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="site-info">
+                  <img src="https://www.google.com/s2/favicons?domain=github.com" alt="GitHub" class="favicon">
+                  <span>GitHub</span>
+                </div>
+              </td>
+              <td>developer_lotus</td>
+              <td>
+                <div class="password-field">
+                  <span class="password-hidden">••••••••</span>
+                  <button class="btn-show">👁</button>
+                </div>
+              </td>
+              <td><span class="tag tag-work">Trabajo</span></td>
+              <td>2024-01-10</td>
+              <td>
+                <div class="action-buttons">
+                  <button class="btn-action" title="Ver detalles">📋</button>
+                  <button class="btn-action" title="Editar">✏️</button>
+                  <button class="btn-action" title="Eliminar">🗑️</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="site-info">
+                  <img src="https://www.google.com/s2/favicons?domain=linkedin.com" alt="LinkedIn" class="favicon">
+                  <span>LinkedIn</span>
+                </div>
+              </td>
+              <td>professional@email.com</td>
+              <td>
+                <div class="password-field">
+                  <span class="password-hidden">••••••••</span>
+                  <button class="btn-show">👁</button>
+                </div>
+              </td>
+              <td><span class="tag tag-social">Social</span></td>
+              <td>2024-01-08</td>
+              <td>
+                <div class="action-buttons">
+                  <button class="btn-action" title="Ver detalles">📋</button>
+                  <button class="btn-action" title="Editar">✏️</button>
+                  <button class="btn-action" title="Eliminar">🗑️</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="site-info">
+                  <img src="https://www.google.com/s2/favicons?domain=amazon.com" alt="Amazon" class="favicon">
+                  <span>Amazon</span>
+                </div>
+              </td>
+              <td>shopper@email.com</td>
+              <td>
+                <div class="password-field">
+                  <span class="password-hidden">••••••••</span>
+                  <button class="btn-show">👁</button>
+                </div>
+              </td>
+              <td><span class="tag tag-shopping">Compras</span></td>
+              <td>2024-01-05</td>
+              <td>
+                <div class="action-buttons">
+                  <button class="btn-action" title="Ver detalles">📋</button>
+                  <button class="btn-action" title="Editar">✏️</button>
+                  <button class="btn-action" title="Eliminar">🗑️</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="site-info">
+                  <img src="https://www.google.com/s2/favicons?domain=netflix.com" alt="Netflix" class="favicon">
+                  <span>Netflix</span>
+                </div>
+              </td>
+              <td>family@home.com</td>
+              <td>
+                <div class="password-field">
+                  <span class="password-hidden">••••••••</span>
+                  <button class="btn-show">👁</button>
+                </div>
+              </td>
+              <td><span class="tag tag-entertainment">Entretenimiento</span></td>
+              <td>2024-01-03</td>
+              <td>
+                <div class="action-buttons">
+                  <button class="btn-action" title="Ver detalles">📋</button>
+                  <button class="btn-action" title="Editar">✏️</button>
+                  <button class="btn-action" title="Eliminar">🗑️</button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="pagination">
+        <button class="btn-page">←</button>
+        <span class="page-info">Página 1 de 3</span>
+        <button class="btn-page">→</button>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; 2025 Lotus Password Manager</p>
+    </footer>
+  </body>
+</html>

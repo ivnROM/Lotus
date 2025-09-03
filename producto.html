@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link href="styles/styles.css" rel="stylesheet"/>
+  <title>Nueva contraseña</title>
+</head>
+<body>
+    <div class="centered-text">
+      <h1>Crear / Guardar contraseña</h1>
+    </div>
+
+ <div class="login-box">
+        <form action="listado_tabla.html" method="post">
+            <label>Sitio/Servicio</label>
+            <input type="text" required placeholder="ej: example.com o 'Cuenta personal'">
+            
+            <label>Usuario/Email</label>
+            <input type="text" required placeholder="usuario@correo.com">
+            
+            <label>Categoría</label>
+            <select>
+                <option value="personal">Personal</option>
+                <option value="trabajo">Trabajo</option>
+                <option value="financiero">Financiero</option>
+                <option value="social">Social</option>
+                <option value="otros">Otros</option>
+            </select>
+
+            <label>Contraseña</label>
+            <input type="password" 
+                   placeholder="Al menos 8 caracteres, mayúscula, minúscula, número y símbolo"
+                   minlength="8"
+                   pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}">
+            
+            <label>Confirmar contraseña</label>
+            <input type="password" placeholder="Repetir contraseña" required autocomplete="new-password">
+            
+            <p class="password-rules">
+                Reglas mínimas: 8+ caracteres, mayúscula, minúscula, número y símbolo. 
+                El servidor debe validar coincidencia y guardar en forma segura.
+            </p>
+            
+            <div class="form-actions">
+                <button type="submit">Guardar</button>
+                <a class="button" href="listado_tabla.html">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+
