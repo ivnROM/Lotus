@@ -1,4 +1,4 @@
-# Lotus Password Manager
+# 🪷 Lotus Password Manager
 
 ## Concepto
 
