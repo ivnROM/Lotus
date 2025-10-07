@@ -67,6 +67,3 @@ Permitir el acceso rápido (pero seguro) de un conjunto de usuarios, contraseña
 -  Navegación que se apila verticalmente en móvil
 -  Tablas con scroll horizontal
 -  Vista alternativa de tarjetas para móviles
--  Botones con área táctil mínima de 44px
--  Formularios optimizados para touch
--  Viewport meta tag en todos los archivos
