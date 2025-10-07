@@ -1,232 +1,324 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="styles/styles.css" rel="stylesheet"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Faculty+Glyphic&display=swap" rel="stylesheet">
-    <title>Mis Contraseñas - Vista Tarjetas | Lotus</title>
-  </head>
-
-    <body>
-    <nav class="navbar">
-      <div class="navleft">
-        <div class="nav-logo">
-          <a href="index.html"> 
-            <img src="assets/lotus_pic.png" alt="Lotus Logo"/>
-          </a>
-        </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis contraseñas - Vista Tarjetas - Lotus</title>
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="index.html">
+          <span class="logo-text">🪷 Lotus</span>
+        </a>
       </div>
-      <div class="navright">
-        <a href="listado_tabla.html">Mis Contraseñas</a> 
-      </div>
-    </nav>
-
-    <div class="main-content">
-      <div class="page-header">
-        <h1>Mis Contraseñas</h1>
-        <div class="view-toggle">
-          <a href="listado_tabla.html" class="btn-view">📋 Vista Tabla</a>
-          <button class="btn-view active">📦 Vista Tarjetas</button>
-        </div>
-      </div>
-
-      <div class="search-section">
-        <div class="search-form">
-          <input type="text" placeholder="Buscar contraseñas..." class="search-input">
-          <button class="btn-add" onclick="location.href='producto.html'">➕ Nueva Contraseña</button>
-        </div>
-
-        <div class="filter-tags">
-          <button class="filter-tag active">Todas</button>
-          <button class="filter-tag">Personal</button>
-          <button class="filter-tag">Trabajo</button>
-          <button class="filter-tag">Social</button>
-          <button class="filter-tag">Compras</button>
-          <button class="filter-tag">Entretenimiento</button>
-        </div>
-      </div>
-
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="card-header">
-            <img src="https://www.google.com/s2/favicons?domain=google.com" alt="Google" class="card-favicon">
-            <h3>Google</h3>
-            <span class="card-tag">Personal</span>
-          </div>
-          <div class="card-field">
-            <label>Usuario:</label>
-            <span>usuario@gmail.com</span>
-          </div>
-          <div class="card-field">
-            <label>Contraseña:</label>
-            <div class="password-display">
-              <span class="password-hidden">••••••••</span>
-              <button class="btn-show-small">👁</button>
-            </div>
-          </div>
-          <div class="card-field">
-            <label>Actualizado:</label>
-            <span>15 ene, 2024</span>
-          </div>
-          <div class="card-footer">
-            <button class="btn-card-action">📋 Copiar</button>
-            <button class="btn-card-action">✏️ Editar</button>
-            <button class="btn-card-action">🔗 Visitar</button>
-          </div>
-        </div>
-
-        <div class="feature-card">
-          <div class="card-header">
-            <img src="https://www.google.com/s2/favicons?domain=github.com" alt="GitHub" class="card-favicon">
-            <h3>GitHub</h3>
-            <span class="card-tag">Trabajo</span>
-          </div>
-          <div class="card-field">
-            <label>Usuario:</label>
-            <span>developer_lotus</span>
-          </div>
-          <div class="card-field">
-            <label>Contraseña:</label>
-            <div class="password-display">
-              <span class="password-hidden">••••••••</span>
-              <button class="btn-show-small">👁</button>
-            </div>
-          </div>
-          <div class="card-field">
-            <label>Actualizado:</label>
-            <span>10 ene, 2024</span>
-          </div>
-          <div class="card-footer">
-            <button class="btn-card-action">📋 Copiar</button>
-            <button class="btn-card-action">✏️ Editar</button>
-            <button class="btn-card-action">🔗 Visitar</button>
-          </div>
-        </div>
-
-        <div class="feature-card">
-          <div class="card-header">
-            <img src="https://www.google.com/s2/favicons?domain=linkedin.com" alt="LinkedIn" class="card-favicon">
-            <h3>LinkedIn</h3>
-            <span class="card-tag">Social</span>
-          </div>
-          <div class="card-field">
-            <label>Usuario:</label>
-            <span>professional@email.com</span>
-          </div>
-          <div class="card-field">
-            <label>Contraseña:</label>
-            <div class="password-display">
-              <span class="password-hidden">••••••••</span>
-              <button class="btn-show-small">👁</button>
-            </div>
-          </div>
-          <div class="card-field">
-            <label>Actualizado:</label>
-            <span>8 ene, 2024</span>
-          </div>
-          <div class="card-footer">
-            <button class="btn-card-action">📋 Copiar</button>
-            <button class="btn-card-action">✏️ Editar</button>
-            <button class="btn-card-action">🔗 Visitar</button>
-          </div>
-        </div>
-
-        <div class="feature-card">
-          <div class="card-header">
-            <img src="https://www.google.com/s2/favicons?domain=amazon.com" alt="Amazon" class="card-favicon">
-            <h3>Amazon</h3>
-            <span class="card-tag">Compras</span>
-          </div>
-          <div class="card-field">
-            <label>Usuario:</label>
-            <span>shopper@email.com</span>
-          </div>
-          <div class="card-field">
-            <label>Contraseña:</label>
-            <div class="password-display">
-              <span class="password-hidden">••••••••</span>
-              <button class="btn-show-small">👁</button>
-            </div>
-          </div>
-          <div class="card-field">
-            <label>Actualizado:</label>
-            <span>5 ene, 2024</span>
-          </div>
-          <div class="card-footer">
-            <button class="btn-card-action">📋 Copiar</button>
-            <button class="btn-card-action">✏️ Editar</button>
-            <button class="btn-card-action">🔗 Visitar</button>
-          </div>
-        </div>
-
-        <div class="feature-card">
-          <div class="card-header">
-            <img src="https://www.google.com/s2/favicons?domain=netflix.com" alt="Netflix" class="card-favicon">
-            <h3>Netflix</h3>
-            <span class="card-tag">Entretenimiento</span>
-          </div>
-          <div class="card-field">
-            <label>Usuario:</label>
-            <span>family@home.com</span>
-          </div>
-          <div class="card-field">
-            <label>Contraseña:</label>
-            <div class="password-display">
-              <span class="password-hidden">••••••••</span>
-              <button class="btn-show-small">👁</button>
-            </div>
-          </div>
-          <div class="card-field">
-            <label>Actualizado:</label>
-            <span>3 ene, 2024</span>
-          </div>
-          <div class="card-footer">
-            <button class="btn-card-action">📋 Copiar</button>
-            <button class="btn-card-action">✏️ Editar</button>
-            <button class="btn-card-action">🔗 Visitar</button>
-          </div>
-        </div>
-
-        <div class="feature-card">
-          <div class="card-header">
-            <img src="https://www.google.com/s2/favicons?domain=spotify.com" alt="Spotify" class="card-favicon">
-            <h3>Spotify</h3>
-            <span class="card-tag">Entretenimiento</span>
-          </div>
-          <div class="card-field">
-            <label>Usuario:</label>
-            <span>music.lover@email.com</span>
-          </div>
-          <div class="card-field">
-            <label>Contraseña:</label>
-            <div class="password-display">
-              <span class="password-hidden">••••••••</span>
-              <button class="btn-show-small">👁</button>
-            </div>
-          </div>
-          <div class="card-field">
-            <label>Actualizado:</label>
-            <span>1 ene, 2024</span>
-          </div>
-          <div class="card-footer">
-            <button class="btn-card-action">📋 Copiar</button>
-            <button class="btn-card-action">✏️ Editar</button>
-            <button class="btn-card-action">🔗 Visitar</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="pagination">
-        <button class="btn-page">← Anterior</button>
-        <span class="page-info">Página 1 de 2</span>
-        <button class="btn-page">Siguiente →</button>
+      <div class="nav-links">
+        <span id="userEmail" style="color: #6ee7b7;"></span>
+        <a href="#" onclick="logout()">Cerrar sesión</a>
       </div>
     </div>
-    <footer class="footer">
-      <p>&copy; 2025 Lotus Password Manager</p>
-    </footer>
-  </body>
+  </nav>
+
+  <main class="container">
+    <div class="page-header">
+      <h1>Mis contraseñas (<span id="count">0</span>)</h1>
+      <div class="view-toggle">
+        <a href="listado_tabla.html" class="btn-view">📋 Tabla</a>
+        <button class="btn-view active">📦 Tarjetas</button>
+      </div>
+    </div>
+
+    <div class="toolbar">
+      <input type="text" id="searchInput" placeholder="Buscar..." class="search-input">
+      <select id="filterCategory" class="filter-select">
+        <option value="">Todas las categorías</option>
+        <option value="Personal">Personal</option>
+        <option value="Trabajo">Trabajo</option>
+        <option value="Social">Social</option>
+        <option value="Compras">Compras</option>
+        <option value="Entretenimiento">Entretenimiento</option>
+      </select>
+      <a href="producto.html" class="btn btn-primary">+ Nueva</a>
+    </div>
+
+    <div id="cardGrid" class="card-grid">
+    </div>
+
+    <div id="emptyState" class="empty-state" style="display: none;">
+      <p>No hay contraseñas guardadas</p>
+      <a href="producto.html" class="btn btn-primary">Crear primera contraseña</a>
+    </div>
+  </main>
+
+  <div id="editModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <h2>Editar contraseña</h2>
+      <form id="editForm">
+        <input type="hidden" id="editId">
+        
+        <div class="form-group">
+          <label for="editSite">Sitio</label>
+          <input type="text" id="editSite" required>
+        </div>
+
+        <div class="form-group">
+          <label for="editUsername">Usuario</label>
+          <input type="text" id="editUsername" required>
+        </div>
+
+        <div class="form-group">
+          <label for="editPassword">Contraseña</label>
+          <input type="password" id="editPassword" required>
+        </div>
+
+        <div class="form-group">
+          <label for="editCategory">Categoría</label>
+          <select id="editCategory" required>
+            <option value="Personal">Personal</option>
+            <option value="Trabajo">Trabajo</option>
+            <option value="Social">Social</option>
+            <option value="Compras">Compras</option>
+            <option value="Entretenimiento">Entretenimiento</option>
+          </select>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Guardar cambios</button>
+          <button type="button" class="btn btn-secondary" onclick="closeEditModal()">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" style="display: none;"></div>
+
+  <footer class="footer">
+    <p>&copy; 2025 Lotus Password Manager</p>
+  </footer>
+
+  <script>
+    var icons = {
+      eye: '<img src="assets/eye.svg" class="theme-icon" width="20" height="20" alt="Ver">',
+      copy: '<img src="assets/copy.svg" class="theme-icon" width="20" height="20" alt="Copiar">',
+      edit: '<img src="assets/edit.svg" class="theme-icon" width="20" height="20" alt="Editar">',
+      trash: '<img src="assets/trash.svg" class="theme-icon" "width="20" height="20" alt="Eliminar">'
+    };
+
+    var defaultPasswords = [
+      { id: 1, site: 'Google', username: 'usuario@gmail.com', password: 'MiPass123!', category: 'Personal', date: '2024-01-15' },
+      { id: 2, site: 'GitHub', username: 'developer', password: 'DevPass456#', category: 'Trabajo', date: '2024-01-10' },
+      { id: 3, site: 'LinkedIn', username: 'profesional@email.com', password: 'LinkedIn789$', category: 'Social', date: '2024-01-08' }
+    ];
+
+    var passwords = [];
+    var filteredPasswords = [];
+
+    function init() {
+      var stored = localStorage.getItem('lotus_passwords');
+      if (stored) {
+        passwords = JSON.parse(stored);
+      } else {
+        passwords = defaultPasswords;
+        savePasswords();
+      }
+      
+      var user = localStorage.getItem('lotus_user');
+      if (user) {
+        var userData = JSON.parse(user);
+        document.getElementById('userEmail').textContent = userData.email;
+      }
+      
+      filteredPasswords = passwords;
+      renderCards();
+      setupEventListeners();
+    }
+
+    function setupEventListeners() {
+      document.getElementById('searchInput').addEventListener('input', handleSearch);
+      document.getElementById('filterCategory').addEventListener('change', handleFilter);
+      document.getElementById('editForm').addEventListener('submit', handleEditSubmit);
+    }
+
+    function handleSearch(e) {
+      var searchTerm = e.target.value.toLowerCase();
+      filteredPasswords = passwords.filter(function(p) {
+        return p.site.toLowerCase().includes(searchTerm) || 
+               p.username.toLowerCase().includes(searchTerm);
+      });
+      renderCards();
+    }
+
+    function handleFilter(e) {
+      var category = e.target.value;
+      if (category) {
+        filteredPasswords = passwords.filter(function(p) {
+          return p.category === category;
+        });
+      } else {
+        filteredPasswords = passwords;
+      }
+      renderCards();
+    }
+
+    function renderCards() {
+      var grid = document.getElementById('cardGrid');
+      var emptyState = document.getElementById('emptyState');
+      
+      if (filteredPasswords.length === 0) {
+        grid.innerHTML = '';
+        emptyState.style.display = 'block';
+        grid.style.display = 'none';
+      } else {
+        emptyState.style.display = 'none';
+        grid.style.display = 'grid';
+        
+        grid.innerHTML = '';
+        for (var i = 0; i < filteredPasswords.length; i++) {
+          var p = filteredPasswords[i];
+          var card = document.createElement('div');
+          card.className = 'password-card';
+          
+          card.innerHTML = 
+            '<div class="card-header">' +
+              '<h3>' + p.site + '</h3>' +
+              '<span class="tag tag-' + p.category.toLowerCase() + '">' + p.category + '</span>' +
+            '</div>' +
+            '<div class="card-body">' +
+              '<div class="card-field">' +
+                '<label>Usuario:</label>' +
+                '<span>' + p.username + '</span>' +
+              '</div>' +
+              '<div class="card-field">' +
+                '<label>Contraseña:</label>' +
+                '<div class="password-display">' +
+                  '<span class="password-hidden" id="card-pass-' + p.id + '">••••••••</span>' +
+                  '<button class="btn-icon" onclick="togglePasswordView(' + p.id + ', \'' + p.password + '\')" title="Ver contraseña">' + icons.eye + '</button>' +
+                '</div>' +
+              '</div>' +
+              '<div class="card-field">' +
+                '<label>Fecha:</label>' +
+                '<span>' + formatDate(p.date) + '</span>' +
+              '</div>' +
+            '</div>' +
+            '<div class="card-actions">' +
+              '<button class="btn-icon-card" onclick="copyPassword(\'' + p.password + '\')" title="Copiar">' + icons.copy + '</button>' +
+              '<button class="btn-icon-card" onclick="editPassword(' + p.id + ')" title="Editar">' + icons.edit + '</button>' +
+              '<button class="btn-icon-card btn-delete" onclick="deletePassword(' + p.id + '\')" title="Eliminar">' + icons.trash + '</button>' +
+            '</div>';
+          
+          grid.appendChild(card);
+        }
+      }
+      
+      document.getElementById('count').textContent = filteredPasswords.length;
+    }
+
+    function togglePasswordView(id, password) {
+      var span = document.getElementById('card-pass-' + id);
+      if (span.textContent === '••••••••') {
+        span.textContent = password;
+        setTimeout(function() {
+          span.textContent = '••••••••';
+        }, 3000);
+      } else {
+        span.textContent = '••••••••';
+      }
+    }
+
+    function copyPassword(password) {
+      var temp = document.createElement('textarea');
+      temp.value = password;
+      document.body.appendChild(temp);
+      temp.select();
+      document.execCommand('copy');
+      document.body.removeChild(temp);
+      
+      showToast('Contraseña copiada!');
+    }
+
+    function editPassword(id) {
+      var password = passwords.find(function(p) { return p.id === id; });
+      if (!password) return;
+      
+      document.getElementById('editId').value = password.id;
+      document.getElementById('editSite').value = password.site;
+      document.getElementById('editUsername').value = password.username;
+      document.getElementById('editPassword').value = password.password;
+      document.getElementById('editCategory').value = password.category;
+      
+      document.getElementById('editModal').style.display = 'flex';
+    }
+
+    function closeEditModal() {
+      document.getElementById('editModal').style.display = 'none';
+    }
+
+    function handleEditSubmit(e) {
+      e.preventDefault();
+      
+      var id = parseInt(document.getElementById('editId').value);
+      var index = passwords.findIndex(function(p) { return p.id === id; });
+      
+      if (index !== -1) {
+        passwords[index].site = document.getElementById('editSite').value;
+        passwords[index].username = document.getElementById('editUsername').value;
+        passwords[index].password = document.getElementById('editPassword').value;
+        passwords[index].category = document.getElementById('editCategory').value;
+        passwords[index].date = new Date().toISOString().split('T')[0];
+        
+        savePasswords();
+        filteredPasswords = passwords;
+        renderCards();
+        closeEditModal();
+        showToast('Contraseña actualizada!');
+      }
+    }
+
+    function deletePassword(id) {
+      if (!confirm('¿Seguro que quieres eliminar esta contraseña?')) return;
+      
+      passwords = passwords.filter(function(p) { return p.id !== id; });
+      savePasswords();
+      filteredPasswords = passwords;
+      renderCards();
+      showToast('Contraseña eliminada');
+    }
+
+    function savePasswords() {
+      localStorage.setItem('lotus_passwords', JSON.stringify(passwords));
+    }
+
+    function formatDate(dateStr) {
+      var date = new Date(dateStr);
+      var months = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
+      return date.getDate() + ' ' + months[date.getMonth()] + ', ' + date.getFullYear();
+    }
+
+    function showToast(message) {
+      var toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.style.display = 'block';
+      
+      setTimeout(function() {
+        toast.style.display = 'none';
+      }, 2000);
+    }
+
+    function logout() {
+      localStorage.removeItem('lotus_user');
+      window.location.href = 'index.html';
+    }
+
+    window.addEventListener('click', function(e) {
+      var modal = document.getElementById('editModal');
+      if (e.target === modal) {
+        closeEditModal();
+      }
+    });
+
+    init();
+  </script>
+</body>
 </html>

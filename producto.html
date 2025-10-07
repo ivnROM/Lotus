@@ -1,53 +1,173 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <link href="styles/styles.css" rel="stylesheet"/>
-  <title>Nueva contraseña</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nueva contraseña - Lotus</title>
+  <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-    <div class="centered-text">
-      <h1>Crear / Guardar contraseña</h1>
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="index.html">
+          <span class="logo-text">🪷 Lotus</span>
+        </a>
+      </div>
+      <div class="nav-links">
+        <a href="listado_tabla.html">Mis contraseñas</a>
+      </div>
     </div>
+  </nav>
 
- <div class="login-box">
-        <form action="listado_tabla.html" method="post">
-            <label>Sitio/Servicio</label>
-            <input type="text" required placeholder="ej: example.com o 'Cuenta personal'">
-            
-            <label>Usuario/Email</label>
-            <input type="text" required placeholder="usuario@correo.com">
-            
-            <label>Categoría</label>
-            <select>
-                <option value="personal">Personal</option>
-                <option value="trabajo">Trabajo</option>
-                <option value="financiero">Financiero</option>
-                <option value="social">Social</option>
-                <option value="otros">Otros</option>
-            </select>
+  <main class="container">
+    <h1>Crear nueva contraseña</h1>
+    
+    <form id="passwordForm" class="form-box">
+      <div class="form-group">
+        <label for="site">Sitio/Servicio *</label>
+        <input type="text" id="site" required placeholder="ej: google.com">
+      </div>
 
-            <label>Contraseña</label>
-            <input type="password" 
-                   placeholder="Al menos 8 caracteres, mayúscula, minúscula, número y símbolo"
-                   minlength="8"
-                   pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}">
-            
-            <label>Confirmar contraseña</label>
-            <input type="password" placeholder="Repetir contraseña" required autocomplete="new-password">
-            
-            <p class="password-rules">
-                Reglas mínimas: 8+ caracteres, mayúscula, minúscula, número y símbolo. 
-                El servidor debe validar coincidencia y guardar en forma segura.
-            </p>
-            
-            <div class="form-actions">
-                <button type="submit">Guardar</button>
-                <a class="button" href="listado_tabla.html">Cancelar</a>
-            </div>
-        </form>
-    </div>
+      <div class="form-group">
+        <label for="username">Usuario/Email *</label>
+        <input type="text" id="username" required placeholder="usuario@correo.com">
+      </div>
+
+      <div class="form-group">
+        <label for="category">Categoría *</label>
+        <select id="category" required>
+          <option value="Personal">Personal</option>
+          <option value="Trabajo">Trabajo</option>
+          <option value="Social">Social</option>
+          <option value="Compras">Compras</option>
+          <option value="Entretenimiento">Entretenimiento</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Contraseña *</label>
+        <div class="password-input">
+          <input type="password" id="password" required minlength="8">
+          <button type="button" class="toggle-password" onclick="togglePassword()">👁️</button>
+        </div>
+         Agregado indicador de fortaleza de contraseña 
+        <div class="password-strength">
+          <div id="strengthBar" class="password-strength-bar"></div>
+        </div>
+        <div id="passwordRequirements" class="password-requirements">
+          <div class="requirement" id="req-length">
+            <span>●</span> Mínimo 8 caracteres
+          </div>
+          <div class="requirement" id="req-uppercase">
+            <span>●</span> Una mayúscula
+          </div>
+          <div class="requirement" id="req-number">
+            <span>●</span> Un número
+          </div>
+          <div class="requirement" id="req-special">
+            <span>●</span> Un carácter especial (!@#$%^&*)
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="confirmPassword">Confirmar contraseña *</label>
+        <input type="password" id="confirmPassword" required>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <a href="listado_tabla.html" class="btn btn-secondary">Cancelar</a>
+      </div>
+    </form>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 Lotus Password Manager</p>
+  </footer>
+
+  <script>
+    function togglePassword() {
+      var passwordInput = document.getElementById('password');
+      var button = event.target;
+      
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        button.textContent = '🙈';
+      } else {
+        passwordInput.type = 'password';
+        button.textContent = '👁️';
+      }
+    }
+
+    document.getElementById('password').addEventListener('input', function(e) {
+      var password = e.target.value;
+      var strengthBar = document.getElementById('strengthBar');
+      
+      var hasLength = password.length >= 8;
+      var hasUppercase = /[A-Z]/.test(password);
+      var hasNumber = /[0-9]/.test(password);
+      var hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+      
+      document.getElementById('req-length').className = hasLength ? 'requirement met' : 'requirement unmet';
+      document.getElementById('req-uppercase').className = hasUppercase ? 'requirement met' : 'requirement unmet';
+      document.getElementById('req-number').className = hasNumber ? 'requirement met' : 'requirement unmet';
+      document.getElementById('req-special').className = hasSpecial ? 'requirement met' : 'requirement unmet';
+      
+      var strength = 0;
+      if (hasLength) strength++;
+      if (hasUppercase) strength++;
+      if (hasNumber) strength++;
+      if (hasSpecial) strength++;
+      
+      strengthBar.className = 'password-strength-bar';
+      if (strength === 4) {
+        strengthBar.className += ' strength-strong';
+      } else if (strength >= 2) {
+        strengthBar.className += ' strength-medium';
+      } else if (strength >= 1) {
+        strengthBar.className += ' strength-weak';
+      }
+    });
+
+    document.getElementById('passwordForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      var password = document.getElementById('password').value;
+      var confirmPassword = document.getElementById('confirmPassword').value;
+      
+      var hasLength = password.length >= 8;
+      var hasUppercase = /[A-Z]/.test(password);
+      var hasNumber = /[0-9]/.test(password);
+      var hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+      
+      if (!hasLength || !hasUppercase || !hasNumber || !hasSpecial) {
+        alert('La contraseña debe cumplir todos los requisitos de seguridad:\n- Mínimo 8 caracteres\n- Una mayúscula\n- Un número\n- Un carácter especial');
+        return;
+      }
+      
+      if (password !== confirmPassword) {
+        alert('Las contraseñas no coinciden');
+        return;
+      }
+      
+      var newPassword = {
+        id: Date.now(),
+        site: document.getElementById('site').value,
+        username: document.getElementById('username').value,
+        password: password,
+        category: document.getElementById('category').value,
+        date: new Date().toISOString().split('T')[0]
+      };
+      
+      var passwords = JSON.parse(localStorage.getItem('lotus_passwords') || '[]');
+      passwords.push(newPassword);
+      localStorage.setItem('lotus_passwords', JSON.stringify(passwords));
+      
+      alert('Contraseña guardada!');
+      window.location.href = 'listado_tabla.html';
+    });
+  </script>
 </body>
 </html>
-

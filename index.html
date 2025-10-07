@@ -1,54 +1,86 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <!-- Acá se incluyen keywords, estilos css, ...-->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link href="styles/styles.css" rel="stylesheet"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Faculty+Glyphic&display=swap" rel="stylesheet">
-    <title> Inicio </title>
-  </head>
-  <body>
-    <nav class="navbar">
-      <div class="navleft">
-        <div class="nav-logo">
-          <a href="index.html"> 
-            <img src="assets/lotus_pic.png" alt="Lotus Logo"/>
-          </a>
-          <a href="about.html">Quienes somos?</a>
-        </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lotus - Gestor de Contraseñas</title>
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="index.html">
+          <span class="logo-text">🪷 Lotus</span>
+        </a>
+        <a href="about.html">Quiénes somos</a>
       </div>
-      <div class="navright">
+      <div class="nav-links">
         <a href="login.html">Iniciar sesión</a>
-        <a href="comprar.html">Precios</a> 
-      </div>
-    </nav>
-    <img src="assets/lotus_pic.png" alt="Lotus test logo" class="centered-image"/>
-    <h1 class="centered-text"> Lotus </h1>
-    <h2 class="centered-text"> Tu bóveda segura de datos </h2>
-    <br><br><br>
-    <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon">🔐</div>
-        <h2>Cifrado AES-256</h3>
-        <p>Tus datos están protegidos con el estándar de cifrado más robusto de la industria</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🌐</div>
-        <h2>Acceso Universal</h3>
-        <p>Accede a tus contraseñas desde cualquier dispositivo con tu navegador web</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">⚡</div>
-        <h2>Rápido y Seguro</h3>
-        <p>Interfaz intuitiva que no sacrifica seguridad por conveniencia</p>
+        <a href="registro.html">Registrarse</a>
+        <a href="comprar.html">Precios</a>
       </div>
     </div>
-  </body>
+  </nav>
+
+  <main class="hero">
+    <div class="hero-content">
+      <div class="logo-big">🪷</div>
+      <h1>Lotus</h1>
+      <p class="subtitle">Tu bóveda segura de contraseñas</p>
+      
+      <div class="cta-buttons">
+        <button class="btn btn-primary" onclick="location.href='registro.html'">Comenzar ahora</button>
+        <button class="btn btn-secondary" onclick="location.href='listado_tabla.html'">Ver demo</button>
+      </div>
+    </div>
+
+    <div class="features">
+      <div class="feature-card">
+        <div class="feature-icon">🔒</div>
+        <h3>Cifrado seguro</h3>
+        <p>Tus contraseñas protegidas con cifrado AES-256</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">🌐</div>
+        <h3>Acceso desde cualquier lugar</h3>
+        <p>Usa tu navegador web desde cualquier dispositivo</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>Rápido y fácil</h3>
+        <p>Interfaz simple que no sacrifica seguridad</p>
+      </div>
+    </div>
+  </main>
+
   <footer class="footer">
     <p>&copy; 2025 Lotus Password Manager</p>
   </footer>
+
+  <script>
+    // animación cuando se abre la página
+    window.addEventListener('load', function() {
+      var cards = document.querySelectorAll('.feature-card');
+      for (var i = 0; i < cards.length; i++) {
+        cards[i].style.opacity = '0';
+        cards[i].style.transform = 'translateY(20px)';
+      }
+      
+      setTimeout(function() {
+        for (var i = 0; i < cards.length; i++) {
+          (function(index) {
+            setTimeout(function() {
+              cards[index].style.transition = 'all 0.5s ease';
+              cards[index].style.opacity = '1';
+              cards[index].style.transform = 'translateY(0)';
+            }, index * 200);
+          })(i);
+        }
+      }, 300);
+    });
+  </script>
+</body>
 </html>

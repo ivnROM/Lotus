@@ -1,190 +1,378 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="styles/styles.css" rel="stylesheet"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Faculty+Glyphic&display=swap" rel="stylesheet">
-    <title>Mis Contraseñas - Vista Tabla | Lotus</title>
-  </head>
-  <body>
-    <nav class="navbar">
-      <div class="navleft">
-        <div class="nav-logo">
-          <a href="index.html"> 
-            <img src="assets/lotus_pic.png" alt="Lotus Logo"/>
-          </a>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis contraseñas - Lotus</title>
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="index.html">
+          <span class="logo-text">🪷 Lotus</span>
+        </a>
+      </div>
+      <div class="nav-links">
+        <span id="userEmail" style="color: #6ee7b7;"></span>
+        <a href="#" onclick="logout()">Cerrar sesión</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div class="page-header">
+      <h1>Mis contraseñas (<span id="count">0</span>)</h1>
+      <div class="view-toggle">
+        <button class="btn-view active">📋 Tabla</button>
+        <a href="listado_box.html" class="btn-view">📦 Tarjetas</a>
+      </div>
+    </div>
+
+    <div class="toolbar">
+      <input type="text" id="searchInput" placeholder="Buscar..." class="search-input">
+      <select id="filterCategory" class="filter-select">
+        <option value="">Todas las categorías</option>
+        <option value="Personal">Personal</option>
+        <option value="Trabajo">Trabajo</option>
+        <option value="Social">Social</option>
+        <option value="Compras">Compras</option>
+        <option value="Entretenimiento">Entretenimiento</option>
+      </select>
+      <a href="producto.html" class="btn btn-primary">+ Nueva</a>
+    </div>
+
+    <div class="table-wrapper desktop-view">
+      <table class="password-table">
+        <thead>
+          <tr>
+            <th>Sitio</th>
+            <th>Usuario</th>
+            <th>Contraseña</th>
+            <th>Categoría</th>
+            <th>Fecha</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="passwordList">
+        </tbody>
+      </table>
+    </div>
+
+    <div class="mobile-cards-view" id="mobilePasswordList">
+    </div>
+
+    <div id="emptyState" class="empty-state" style="display: none;">
+      <p>No hay contraseñas guardadas</p>
+      <a href="producto.html" class="btn btn-primary">Crear primera contraseña</a>
+    </div>
+  </main>
+
+  <div id="editModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <h2>Editar contraseña</h2>
+      <form id="editForm">
+        <input type="hidden" id="editId">
+        
+        <div class="form-group">
+          <label for="editSite">Sitio</label>
+          <input type="text" id="editSite" required>
         </div>
-      </div>
-      <div class="navright">
-        <a href="listado_tabla.html">Mis Contraseñas</a> 
-      </div>
-    </nav>
 
-    <main class="container">
-      <div class="page-header">
-        <h1>Mis Contraseñas</h1>
-        <div class="view-toggle">
-          <button class="btn-view active">📋 Vista Tabla</button>
-          <a href="listado_box.html" class="btn-view">📦 Vista Tarjetas</a>
+        <div class="form-group">
+          <label for="editUsername">Usuario</label>
+          <input type="text" id="editUsername" required>
         </div>
-      </div>
 
-      <div class="search-bar">
-        <form action="producto.html">
-          <input type="text" placeholder="Buscar contraseñas..." class="search-input">
-          <button class="btn-add">Nueva Contraseña</button>
-        </form>
-      </div>
+        <div class="form-group">
+          <label for="editPassword">Contraseña</label>
+          <input type="password" id="editPassword" required>
+        </div>
 
-      <div class="table-container">
-        <table class="password-table">
-          <thead>
-            <tr>
-              <th>Sitio Web</th>
-              <th>Usuario</th>
-              <th>Contraseña</th>
-              <th>Categoría</th>
-              <th>Última Modificación</th>
-              <th>Acciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <div class="site-info">
-                  <img src="https://www.google.com/s2/favicons?domain=google.com" alt="Google" class="favicon">
-                  <span>Google</span>
-                </div>
-              </td>
-              <td>usuario@gmail.com</td>
-              <td>
-                <div class="password-field">
-                  <span class="password-hidden">••••••••</span>
-                  <button class="btn-show">👁</button>
-                </div>
-              </td>
-              <td><span class="tag tag-personal">Personal</span></td>
-              <td>2024-01-15</td>
-              <td>
-                <div class="action-buttons">
-                  <button class="btn-action" title="Ver detalles">📋</button>
-                  <button class="btn-action" title="Editar">✏️</button>
-                  <button class="btn-action" title="Eliminar">🗑️</button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div class="site-info">
-                  <img src="https://www.google.com/s2/favicons?domain=github.com" alt="GitHub" class="favicon">
-                  <span>GitHub</span>
-                </div>
-              </td>
-              <td>developer_lotus</td>
-              <td>
-                <div class="password-field">
-                  <span class="password-hidden">••••••••</span>
-                  <button class="btn-show">👁</button>
-                </div>
-              </td>
-              <td><span class="tag tag-work">Trabajo</span></td>
-              <td>2024-01-10</td>
-              <td>
-                <div class="action-buttons">
-                  <button class="btn-action" title="Ver detalles">📋</button>
-                  <button class="btn-action" title="Editar">✏️</button>
-                  <button class="btn-action" title="Eliminar">🗑️</button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div class="site-info">
-                  <img src="https://www.google.com/s2/favicons?domain=linkedin.com" alt="LinkedIn" class="favicon">
-                  <span>LinkedIn</span>
-                </div>
-              </td>
-              <td>professional@email.com</td>
-              <td>
-                <div class="password-field">
-                  <span class="password-hidden">••••••••</span>
-                  <button class="btn-show">👁</button>
-                </div>
-              </td>
-              <td><span class="tag tag-social">Social</span></td>
-              <td>2024-01-08</td>
-              <td>
-                <div class="action-buttons">
-                  <button class="btn-action" title="Ver detalles">📋</button>
-                  <button class="btn-action" title="Editar">✏️</button>
-                  <button class="btn-action" title="Eliminar">🗑️</button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div class="site-info">
-                  <img src="https://www.google.com/s2/favicons?domain=amazon.com" alt="Amazon" class="favicon">
-                  <span>Amazon</span>
-                </div>
-              </td>
-              <td>shopper@email.com</td>
-              <td>
-                <div class="password-field">
-                  <span class="password-hidden">••••••••</span>
-                  <button class="btn-show">👁</button>
-                </div>
-              </td>
-              <td><span class="tag tag-shopping">Compras</span></td>
-              <td>2024-01-05</td>
-              <td>
-                <div class="action-buttons">
-                  <button class="btn-action" title="Ver detalles">📋</button>
-                  <button class="btn-action" title="Editar">✏️</button>
-                  <button class="btn-action" title="Eliminar">🗑️</button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div class="site-info">
-                  <img src="https://www.google.com/s2/favicons?domain=netflix.com" alt="Netflix" class="favicon">
-                  <span>Netflix</span>
-                </div>
-              </td>
-              <td>family@home.com</td>
-              <td>
-                <div class="password-field">
-                  <span class="password-hidden">••••••••</span>
-                  <button class="btn-show">👁</button>
-                </div>
-              </td>
-              <td><span class="tag tag-entertainment">Entretenimiento</span></td>
-              <td>2024-01-03</td>
-              <td>
-                <div class="action-buttons">
-                  <button class="btn-action" title="Ver detalles">📋</button>
-                  <button class="btn-action" title="Editar">✏️</button>
-                  <button class="btn-action" title="Eliminar">🗑️</button>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+        <div class="form-group">
+          <label for="editCategory">Categoría</label>
+          <select id="editCategory" required>
+            <option value="Personal">Personal</option>
+            <option value="Trabajo">Trabajo</option>
+            <option value="Social">Social</option>
+            <option value="Compras">Compras</option>
+            <option value="Entretenimiento">Entretenimiento</option>
+          </select>
+        </div>
 
-      <div class="pagination">
-        <button class="btn-page">←</button>
-        <span class="page-info">Página 1 de 3</span>
-        <button class="btn-page">→</button>
-      </div>
-    </main>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Guardar cambios</button>
+          <button type="button" class="btn btn-secondary" onclick="closeEditModal()">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
 
-    <footer class="footer">
-      <p>&copy; 2025 Lotus Password Manager</p>
-    </footer>
-  </body>
+  <div id="toast" class="toast" style="display: none;"></div>
+
+  <footer class="footer">
+    <p>&copy; 2025 Lotus Password Manager</p>
+  </footer>
+
+  <script>
+    var icons = {
+      eye: '<img src="assets/eye.svg" class="theme-icon" width="20" height="20" alt="Ver">',
+      copy: '<img src="assets/copy.svg" class="theme-icon" width="20" height="20" alt="Copiar">',
+      edit: '<img src="assets/edit.svg" class="theme-icon" width="20" height="20" alt="Editar">',
+      trash: '<img src="assets/trash.svg" class="theme-icon"width="20" height="20" alt="Eliminar">'
+    };
+
+    var defaultPasswords = [
+      { id: 1, site: 'Google', username: 'usuario@gmail.com', password: 'MiPass123!', category: 'Personal', date: '2024-01-15' },
+      { id: 2, site: 'GitHub', username: 'developer', password: 'DevPass456#', category: 'Trabajo', date: '2024-01-10' },
+      { id: 3, site: 'LinkedIn', username: 'profesional@email.com', password: 'LinkedIn789$', category: 'Social', date: '2024-01-08' }
+    ];
+
+    var passwords = [];
+    var filteredPasswords = [];
+
+    function init() {
+      var stored = localStorage.getItem('lotus_passwords');
+      if (stored) {
+        passwords = JSON.parse(stored);
+      } else {
+        passwords = defaultPasswords;
+        savePasswords();
+      }
+      
+      var user = localStorage.getItem('lotus_user');
+      if (user) {
+        var userData = JSON.parse(user);
+        document.getElementById('userEmail').textContent = userData.email;
+      }
+      
+      filteredPasswords = passwords;
+      renderTable();
+      setupEventListeners();
+    }
+
+    function setupEventListeners() {
+      document.getElementById('searchInput').addEventListener('input', handleSearch);
+      document.getElementById('filterCategory').addEventListener('change', handleFilter);
+      document.getElementById('editForm').addEventListener('submit', handleEditSubmit);
+    }
+
+    function handleSearch(e) {
+      var searchTerm = e.target.value.toLowerCase();
+      filteredPasswords = passwords.filter(function(p) {
+        return p.site.toLowerCase().includes(searchTerm) || 
+               p.username.toLowerCase().includes(searchTerm);
+      });
+      renderTable();
+    }
+
+    function handleFilter(e) {
+      var category = e.target.value;
+      if (category) {
+        filteredPasswords = passwords.filter(function(p) {
+          return p.category === category;
+        });
+      } else {
+        filteredPasswords = passwords;
+      }
+      renderTable();
+    }
+
+    function renderTable() {
+      var tbody = document.getElementById('passwordList');
+      var mobileList = document.getElementById('mobilePasswordList');
+      var emptyState = document.getElementById('emptyState');
+      
+      if (filteredPasswords.length === 0) {
+        tbody.innerHTML = '';
+        mobileList.innerHTML = '';
+        emptyState.style.display = 'block';
+        document.querySelector('.table-wrapper').style.display = 'none';
+        document.querySelector('.mobile-cards-view').style.display = 'none';
+      } else {
+        emptyState.style.display = 'none';
+        document.querySelector('.table-wrapper').style.display = 'block';
+        document.querySelector('.mobile-cards-view').style.display = 'block';
+        
+        // renderizar tabla para la vista desktop
+        tbody.innerHTML = '';
+        for (var i = 0; i < filteredPasswords.length; i++) {
+          var p = filteredPasswords[i];
+          var tr = document.createElement('tr');
+          
+          tr.innerHTML = 
+            '<td><strong>' + p.site + '</strong></td>' +
+            '<td>' + p.username + '</td>' +
+            '<td>' +
+              '<span class="password-hidden" id="pass-' + p.id + '">••••••••</span>' +
+              '<button class="btn-icon" onclick="togglePasswordView(' + p.id + ', \'' + p.password + '\')" title="Ver contraseña">' + icons.eye + '</button>' +
+              '<button class="btn-icon" onclick="copyPassword(\'' + p.password + '\')" title="Copiar">' + icons.copy + '</button>' +
+            '</td>' +
+            '<td><span class="tag tag-' + p.category.toLowerCase() + '">' + p.category + '</span></td>' +
+            '<td>' + formatDate(p.date) + '</td>' +
+            '<td>' +
+              '<button class="btn-icon" onclick="editPassword(' + p.id + ')" title="Editar">' + icons.edit + '</button>' +
+              '<button class="btn-icon btn-delete" onclick="deletePassword(' + p.id + ')" title="Eliminar">' + icons.trash + '</button>' +
+            '</td>';
+          
+          tbody.appendChild(tr);
+        }
+
+        // renderizar para vista mobile 
+        mobileList.innerHTML = '';
+        for (var i = 0; i < filteredPasswords.length; i++) {
+          var p = filteredPasswords[i];
+          var card = document.createElement('div');
+          card.className = 'mobile-password-card';
+          
+          card.innerHTML = 
+            '<div class="mobile-card-header">' +
+              '<div class="mobile-card-title">' +
+                '<strong>' + p.site + '</strong>' +
+                '<span class="tag tag-' + p.category.toLowerCase() + '">' + p.category + '</span>' +
+              '</div>' +
+            '</div>' +
+            '<div class="mobile-card-body">' +
+              '<div class="mobile-info">' +
+                '<span class="mobile-label">Usuario:</span>' +
+                '<span class="mobile-value">' + p.username + '</span>' +
+              '</div>' +
+              '<div class="mobile-info">' +
+                '<span class="mobile-label">Contraseña:</span>' +
+                '<span class="password-hidden" id="mobile-pass-' + p.id + '">••••••••</span>' +
+              '</div>' +
+            '</div>' +
+            '<div class="mobile-card-actions">' +
+              '<button class="btn-icon-mobile" onclick="togglePasswordViewMobile(' + p.id + ', \'' + p.password + '\')" title="Ver">' + icons.eye + '</button>' +
+              '<button class="btn-icon-mobile" onclick="copyPassword(\'' + p.password + '\')" title="Copiar">' + icons.copy + '</button>' +
+              '<button class="btn-icon-mobile" onclick="editPassword(' + p.id + ')" title="Editar">' + icons.edit + '</button>' +
+              '<button class="btn-icon-mobile btn-delete" onclick="deletePassword(' + p.id + '\')" title="Eliminar">' + icons.trash + '</button>' +
+            '</div>';
+          
+          mobileList.appendChild(card);
+        }
+      }
+      
+      document.getElementById('count').textContent = filteredPasswords.length;
+    }
+
+    function togglePasswordView(id, password) {
+      var span = document.getElementById('pass-' + id);
+      if (span.textContent === '••••••••') {
+        span.textContent = password;
+        setTimeout(function() {
+          span.textContent = '••••••••';
+        }, 3000);
+      } else {
+        span.textContent = '••••••••';
+      }
+    }
+
+    function togglePasswordViewMobile(id, password) {
+      var span = document.getElementById('mobile-pass-' + id);
+      if (span.textContent === '••••••••') {
+        span.textContent = password;
+        setTimeout(function() {
+          span.textContent = '••••••••';
+        }, 3000);
+      } else {
+        span.textContent = '••••••••';
+      }
+    }
+
+    function copyPassword(password) {
+      var temp = document.createElement('textarea');
+      temp.value = password;
+      document.body.appendChild(temp);
+      temp.select();
+      document.execCommand('copy');
+      document.body.removeChild(temp);
+      
+      showToast('Contraseña copiada!');
+    }
+
+    function editPassword(id) {
+      var password = passwords.find(function(p) { return p.id === id; });
+      if (!password) return;
+      
+      document.getElementById('editId').value = password.id;
+      document.getElementById('editSite').value = password.site;
+      document.getElementById('editUsername').value = password.username;
+      document.getElementById('editPassword').value = password.password;
+      document.getElementById('editCategory').value = password.category;
+      
+      document.getElementById('editModal').style.display = 'flex';
+    }
+
+    function closeEditModal() {
+      document.getElementById('editModal').style.display = 'none';
+    }
+
+    function handleEditSubmit(e) {
+      e.preventDefault();
+      
+      var id = parseInt(document.getElementById('editId').value);
+      var index = passwords.findIndex(function(p) { return p.id === id; });
+      
+      if (index !== -1) {
+        passwords[index].site = document.getElementById('editSite').value;
+        passwords[index].username = document.getElementById('editUsername').value;
+        passwords[index].password = document.getElementById('editPassword').value;
+        passwords[index].category = document.getElementById('editCategory').value;
+        passwords[index].date = new Date().toISOString().split('T')[0];
+        
+        savePasswords();
+        filteredPasswords = passwords;
+        renderTable();
+        closeEditModal();
+        showToast('Contraseña actualizada!');
+      }
+    }
+
+    function deletePassword(id) {
+      if (!confirm('¿Seguro que quieres eliminar esta contraseña?')) return;
+      
+      passwords = passwords.filter(function(p) { return p.id !== id; });
+      savePasswords();
+      filteredPasswords = passwords;
+      renderTable();
+      showToast('Contraseña eliminada');
+    }
+
+    function savePasswords() {
+      localStorage.setItem('lotus_passwords', JSON.stringify(passwords));
+    }
+
+    function formatDate(dateStr) {
+      var date = new Date(dateStr);
+      var months = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
+      return date.getDate() + ' ' + months[date.getMonth()] + ', ' + date.getFullYear();
+    }
+
+    function showToast(message) {
+      var toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.style.display = 'block';
+      
+      setTimeout(function() {
+        toast.style.display = 'none';
+      }, 2000);
+    }
+
+    function logout() {
+      localStorage.removeItem('lotus_user');
+      window.location.href = 'index.html';
+    }
+
+    window.addEventListener('click', function(e) {
+      var modal = document.getElementById('editModal');
+      if (e.target === modal) {
+        closeEditModal();
+      }
+    });
+
+    init();
+  </script>
+</body>
 </html>

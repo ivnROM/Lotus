@@ -1,198 +1,209 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link href="styles/styles.css" rel="stylesheet"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Faculty+Glyphic&display=swap" rel="stylesheet">
-    <title>Comprar — Lotus</title>
-  </head>
-  <body>
-    <nav class="navbar">
-      <div class="navleft">
-        <div class="nav-logo">
-          <a href="index.html"> 
-            <img src="assets/lotus_pic.png" alt="Lotus Logo"/>
-          </a>
-          <a href="about.html">Quienes somos?</a>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Precios - Lotus</title>
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="index.html">
+          <span class="logo-text">🪷 Lotus</span>
+        </a>
+        <a href="about.html">Quiénes somos</a>
+      </div>
+      <div class="nav-links">
+        <a href="login.html">Iniciar sesión</a>
+        <a href="registro.html">Registrarse</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div class="pricing-header">
+      <h1>Elige tu plan</h1>
+      <p class="subtitle">Protege tus contraseñas con el plan que mejor se adapte a ti</p>
+    </div>
+    
+    <div class="pricing-grid">
+       <!-- Plan Gratis  -->
+      <div class="pricing-card">
+        <div class="plan-header">
+          <h2>Gratis</h2>
+          <div class="plan-price">
+            <span class="price">$0</span>
+            <span class="period">/mes</span>
+          </div>
+        </div>
+        
+        <div class="plan-features">
+          <div class="feature-item">
+            <span class="feature-icon">✓</span>
+            <span>Hasta 50 contraseñas</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">✓</span>
+            <span>1 dispositivo</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">✓</span>
+            <span>Cifrado básico</span>
+          </div>
+          <div class="feature-item disabled">
+            <span class="feature-icon">✗</span>
+            <span>Sin backup automático</span>
+          </div>
+          <div class="feature-item disabled">
+            <span class="feature-icon">✗</span>
+            <span>Sin soporte prioritario</span>
+          </div>
+        </div>
+        
+        <button class="btn btn-secondary btn-full" onclick="selectPlan('free')">Comenzar gratis</button>
+      </div>
+
+       <!-- Plan Premium  -->
+      <div class="pricing-card featured">
+        <div class="plan-badge">Más popular</div>
+        <div class="plan-header">
+          <h2>Premium</h2>
+          <div class="plan-price">
+            <span class="price">$5.99</span>
+            <span class="period">/mes</span>
+          </div>
+        </div>
+        
+        <div class="plan-features">
+          <div class="feature-item">
+            <span class="feature-icon">✓</span>
+            <span>Contraseñas ilimitadas</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">✓</span>
+            <span>Dispositivos ilimitados</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">✓</span>
+            <span>Cifrado AES-256</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">✓</span>
+            <span>Backup automático diario</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">✓</span>
+            <span>Compartir contraseñas</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">✓</span>
+            <span>Autenticación de 2 factores</span>
+          </div>
+          <div class="feature-item disabled">
+            <span class="feature-icon">✗</span>
+            <span>Sin soporte prioritario</span>
+          </div>
+        </div>
+        
+        <button class="btn btn-primary btn-full" onclick="selectPlan('premium')">Elegir Premium</button>
+      </div>
+
+       <!-- Plan Empresarial  -->
+      <div class="pricing-card">
+        <div class="plan-header">
+          <h2>Empresarial</h2>
+          <div class="plan-price">
+            <span class="price">$19.99</span>
+            <span class="period">/mes</span>
+          </div>
+        </div>
+        
+        <div class="plan-features">
+          <div class="feature-item">
+            <span class="feature-icon">✓</span>
+            <span>Todo lo de Premium</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">✓</span>
+            <span>Hasta 10 usuarios</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">✓</span>
+            <span>Panel de administración</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">✓</span>
+            <span>Políticas de seguridad</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">✓</span>
+            <span>Reportes de actividad</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">✓</span>
+            <span>Soporte prioritario 24/7</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">✓</span>
+            <span>Integración con SSO</span>
+          </div>
+        </div>
+        
+        <button class="btn btn-secondary btn-full" onclick="selectPlan('business')">Elegir Empresarial</button>
+      </div>
+    </div>
+
+    <div class="extras-section">
+      <h2>Complementos adicionales</h2>
+      <div class="extras-grid">
+        <div class="extra-card">
+          <h3>🔐 Backup Seguro Extra</h3>
+          <p>Backup adicional en servidor externo con cifrado de extremo a extremo</p>
+          <div class="extra-price">$2.50/mes</div>
+        </div>
+        
+        <div class="extra-card">
+          <h3>📞 Soporte Premium</h3>
+          <p>Soporte telefónico y por chat 24/7 con tiempo de respuesta garantizado</p>
+          <div class="extra-price">$4.99/mes</div>
+        </div>
+        
+        <div class="extra-card">
+          <h3>🛡️ Monitoreo de Brechas</h3>
+          <p>Te alertamos si tus credenciales aparecen en filtraciones de datos</p>
+          <div class="extra-price">$3.50/mes</div>
         </div>
       </div>
-      <div class="navright">
-        <a href="login.html">Iniciar sesión</a>
-        <a href="comprar.html">Precios</a> 
-      </div>
-    </nav>
+    </div>
+  </main>
 
-    <main class="container page-buy">
-      <h1>Formulario de compra</h1>
-      <div class="buy-grid">
-        <form id="purchase-form" class="form-card" novalidate>
-          <fieldset>
-            <legend>Datos del cliente</legend>
+  <footer class="footer">
+    <p>&copy; 2025 Lotus Password Manager</p>
+  </footer>
 
-            <label for="name">Nombre completo *</label>
-            <input id="name" name="name" type="text" required minlength="3" placeholder="Ej: Juan Pérez">
-
-            <label for="address">Dirección completa *</label>
-            <input id="address" name="address" type="text" required placeholder="Calle, número, ciudad">
-
-            <label for="phone">Teléfono *</label>
-            <input id="phone" name="phone" type="tel" required pattern="^[0-9+()\\s-]{6,20}$" placeholder="+54 9 11 1234 5678">
-
-            <label for="email">E-mail *</label>
-            <input id="email" name="email" type="email" required placeholder="usuario@dominio.com">
-
-            <label for="payment">Medio de pago *</label>
-            <select id="payment" name="payment" required>
-              <option value="">-- seleccionar --</option>
-              <option value="card">Tarjeta de crédito</option>
-              <option value="mercado">Mercado Pago</option>
-              <option value="paypal">PayPal</option>
-              <option value="transfer">Transferencia bancaria</option>
-            </select>
-          </fieldset>
-
-          <fieldset>
-            <legend>Productos</legend>
-
-            <p class="muted">Seleccioná los productos que querés comprar (precios unitarios).</p>
-
-            <label class="checkbox">
-              <input type="checkbox" name="products" value="Lotus Premium" data-price="5.99">
-              Lotus Premium — USD 5.99 / mes
-            </label>
-
-            <label class="checkbox">
-              <input type="checkbox" name="products" value="Backup seguro" data-price="2.50">
-              Backup seguro — USD 2.50 (recupero cifrado)
-            </label>
-
-            <label class="checkbox">
-              <input type="checkbox" name="products" value="Soporte anual" data-price="19.99">
-              Soporte anual — USD 19.99
-            </label>
-
-            <div class="product-note">
-              <small class="muted">Si venís desde la ficha de producto, ese producto se marcará automáticamente.</small>
-            </div>
-          </fieldset>
-
-          <div class="form-actions">
-            <button type="submit" class="btn-primary">Enviar compra</button>
-            <button type="reset" class="btn-ghost">Limpiar</button>
-          </div>
-
-          <div id="form-messages" aria-live="polite"></div>
-        </form>
-
-        <aside class="summary-card">
-          <h2>Resumen del pedido</h2>
-          <div id="order-summary" class="order-summary">
-            <p class="muted">No hay productos seleccionados.</p>
-          </div>
-          <div class="total-row">
-            <span>Total estimado</span>
-            <strong id="order-total">USD 0.00</strong>
-          </div>
-        </aside>
-      </div>
-    </main>
-    </body> 
-
-    <footer class="footer">
-      <p>&copy; 2025 Lotus Password Manager</p>
-    </footer>
-
-    <script>
-    // Helpers
-    function money(v){ return Number(v||0).toFixed(2); }
-
-    // Prefill if vienen parámetros
-    (function(){
-      const params = new URLSearchParams(location.search);
-      const prod = params.get('prod');
-      const price = params.get('price');
-      if (prod) {
-        const boxes = document.querySelectorAll('input[name="products"]');
-        boxes.forEach(cb=>{
-          if (cb.value === prod) cb.checked = true;
-          // si hay price sobreescribe data-price
-          if (cb.value === prod && price) cb.dataset.price = price;
-        });
-        updateSummary();
-        // scroll to form
-        document.getElementById('purchase-form').scrollIntoView({behavior:'smooth', block:'center'});
-      }
-    })();
-
-    // Dynamically update summary
-    function updateSummary(){
-      const boxes = document.querySelectorAll('input[name="products"]');
-      const summary = document.getElementById('order-summary');
-      const totalEl = document.getElementById('order-total');
-      let lines = [];
-      let total = 0;
-      boxes.forEach(cb=>{
-        if (cb.checked){
-          const price = parseFloat(cb.dataset.price||0);
-          lines.push(`<div class="summary-item"><span>${cb.value}</span><span>USD ${money(price)}</span></div>`);
-          total += price;
-        }
-      });
-      if (!lines.length){
-        summary.innerHTML = '<p class="muted">No hay productos seleccionados.</p>';
-      } else {
-        summary.innerHTML = lines.join('');
-      }
-      totalEl.textContent = 'USD ' + money(total);
-      return total;
-    }
-
-    document.querySelectorAll('input[name="products"]').forEach(el=>{
-      el.addEventListener('change', updateSummary);
-    });
-
-    // Validación y submit (simulado)
-    const form = document.getElementById('purchase-form');
-    const messages = document.getElementById('form-messages');
-
-    form.addEventListener('submit', function(ev){
-      ev.preventDefault();
-      messages.innerHTML = '';
-      if (!form.checkValidity()){
-        // show minimal validation feedback
-        form.reportValidity();
-        return;
-      }
-
-      // verificar que haya al menos un producto
-      const selected = Array.from(document.querySelectorAll('input[name="products"]:checked'));
-      if (!selected.length){
-        messages.innerHTML = '<p class="error">Seleccioná al menos un producto antes de enviar.</p>';
-        return;
-      }
-
-      // construir payload (simulado)
-      const payload = {
-        name: form.name.value.trim(),
-        address: form.address.value.trim(),
-        phone: form.phone.value.trim(),
-        email: form.email.value.trim(),
-        payment: form.payment.value,
-        products: selected.map(cb=>({name: cb.value, price: parseFloat(cb.dataset.price||0)})),
-        total: parseFloat( document.getElementById('order-total').textContent.replace('USD ','') )
+  <script>
+    function selectPlan(plan) {
+      var planNames = {
+        'free': 'Plan Gratis',
+        'premium': 'Plan Premium ($5.99/mes)',
+        'business': 'Plan Empresarial ($19.99/mes)'
       };
-
-      // aquí podrías enviar el payload al backend; para la consigna lo simulamos:
-      messages.innerHTML = '<p class="success">Compra simulada correcta. Resumen abajo. (Esto es un demo sin backend)</p>';
-      messages.innerHTML += '<pre class="debug">' + JSON.stringify(payload,null,2) + '</pre>';
-      // opcional: limpiar form o redirigir
-      form.reset();
-      updateSummary();
-    });
-    </script>
-  </body>
+      
+      var confirmed = confirm('¿Deseas continuar con ' + planNames[plan] + '?');
+      
+      if (confirmed) {
+        if (plan === 'free') {
+          window.location.href = 'registro.html';
+        } else {
+          alert('Redirigiendo al proceso de pago...');
+          setTimeout(function() {
+            window.location.href = 'registro.html';
+          }, 1000);
+        }
+      }
+    }
+  </script>
+</body>
 </html>
-
