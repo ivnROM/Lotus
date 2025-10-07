@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Iniciar sesión - Lotus</title>
-  <link rel="stylesheet" href="styles/style.css">
+  <title>Registro - Lotus</title>
+  <link rel="stylesheet" href="../styles/style.css">
 </head>
 <body>
   <nav class="navbar">
@@ -17,7 +17,6 @@
       </div>
       <div class="nav-links">
         <a href="login.html">Iniciar sesión</a>
-        <a href="registro.html">Registrarse</a>
         <a href="comprar.html">Precios</a>
       </div>
     </div>
@@ -26,11 +25,17 @@
   <main class="container">
     <div class="login-container">
       <div class="logo-big">🪷</div>
-      <h1>Iniciar sesión</h1>
+      <h1>Crear cuenta</h1>
+      <p class="subtitle">Únete a Lotus y protege tus contraseñas</p>
       
-      <form id="loginForm" class="form-box">
+      <form id="registerForm" class="form-box">
         <div id="errorMsg" class="error-msg" style="display: none;"></div>
         
+        <div class="form-group">
+          <label for="name">Nombre completo</label>
+          <input type="text" id="name" required>
+        </div>
+
         <div class="form-group">
           <label for="email">Correo electrónico</label>
           <input type="email" id="email" required>
@@ -40,7 +45,7 @@
           <label for="password">Contraseña maestra</label>
           <div class="password-input">
             <input type="password" id="password" required>
-            <button type="button" class="toggle-password" onclick="togglePasswordVisibility()">👁️</button>
+            <button type="button" class="toggle-password" onclick="togglePasswordVisibility('password')">👁️</button>
           </div>
           <div class="password-strength">
             <div id="strengthBar" class="password-strength-bar"></div>
@@ -61,14 +66,25 @@
           </div>
         </div>
 
-        <button type="submit" class="btn btn-primary btn-full">Iniciar sesión</button>
+        <div class="form-group">
+          <label for="confirmPassword">Confirmar contraseña</label>
+          <div class="password-input">
+            <input type="password" id="confirmPassword" required>
+            <button type="button" class="toggle-password" onclick="togglePasswordVisibility('confirmPassword')">👁️</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="terms" required>
+            Acepto los términos y condiciones
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-full">Crear cuenta</button>
         
         <p class="form-note">
-          ¿No tienes cuenta? <a href="registro.html" style="color: #6ee7b7;">Regístrate aquí</a>
-        </p>
-        
-        <p class="form-note">
-          Demo: usa <strong>demo@lotus.com</strong> / <strong>Demo123!</strong>
+          ¿Ya tienes cuenta? <a href="login.html" style="color: #6ee7b7;">Inicia sesión</a>
         </p>
       </form>
     </div>
@@ -79,8 +95,8 @@
   </footer>
 
   <script>
-    function togglePasswordVisibility() {
-      var passwordInput = document.getElementById('password');
+    function togglePasswordVisibility(inputId) {
+      var passwordInput = document.getElementById(inputId);
       var button = event.target;
       
       if (passwordInput.type === 'password') {
@@ -122,11 +138,14 @@
       }
     });
 
-    document.getElementById('loginForm').addEventListener('submit', function(e) {
+    document.getElementById('registerForm').addEventListener('submit', function(e) {
       e.preventDefault();
       
+      var name = document.getElementById('name').value;
       var email = document.getElementById('email').value;
       var password = document.getElementById('password').value;
+      var confirmPassword = document.getElementById('confirmPassword').value;
+      var terms = document.getElementById('terms').checked;
       var errorMsg = document.getElementById('errorMsg');
       
       var hasLength = password.length >= 8;
@@ -137,25 +156,35 @@
       if (!hasLength || !hasUppercase || !hasNumber || !hasSpecial) {
         errorMsg.textContent = 'La contraseña debe cumplir todos los requisitos de seguridad';
         errorMsg.style.display = 'block';
-        
-        setTimeout(function() {
-          errorMsg.style.display = 'none';
-        }, 3000);
+        setTimeout(function() { errorMsg.style.display = 'none'; }, 3000);
         return;
       }
       
-      if (email === 'demo@lotus.com' && password === 'Demo123!') {
-        localStorage.setItem('lotus_user', JSON.stringify({ email: email }));
-        window.location.href = 'listado_tabla.html';
-      } else {
-        errorMsg.textContent = 'Credenciales incorrectas. Usa: demo@lotus.com / Demo123!';
+      if (password !== confirmPassword) {
+        errorMsg.textContent = 'Las contraseñas no coinciden';
         errorMsg.style.display = 'block';
-        
-        setTimeout(function() {
-          errorMsg.style.display = 'none';
-        }, 3000);
+        setTimeout(function() { errorMsg.style.display = 'none'; }, 3000);
+        return;
       }
+      
+      if (!terms) {
+        errorMsg.textContent = 'Debes aceptar los términos y condiciones';
+        errorMsg.style.display = 'block';
+        setTimeout(function() { errorMsg.style.display = 'none'; }, 3000);
+        return;
+      }
+      
+      localStorage.setItem('lotus_user', JSON.stringify({ 
+        name: name,
+        email: email 
+      }));
+      
+      alert('Cuenta creada exitosamente! Redirigiendo...');
+      setTimeout(function() {
+        window.location.href = 'listado_tabla.html';
+      }, 1000);
     });
   </script>
 </body>
 </html>
+
